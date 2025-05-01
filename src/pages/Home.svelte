@@ -9,5 +9,4 @@
 <main>
   <Banner />
   <Projects />
-  <Todo />
 </main>
