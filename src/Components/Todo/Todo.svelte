@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { onMount } from "svelte";
   import { gsap } from "gsap";
   import { Draggable } from "gsap/Draggable";
@@ -172,4 +172,4 @@
     font-size: 12px;
     color: #ccc;
   }
-</style>
+</style> -->
