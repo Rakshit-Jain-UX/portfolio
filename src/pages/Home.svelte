@@ -9,4 +9,5 @@
 <main>
   <Banner />
   <Projects />
+  <Pathway/>
 </main>
