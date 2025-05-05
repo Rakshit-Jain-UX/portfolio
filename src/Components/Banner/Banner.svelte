@@ -15,7 +15,7 @@
           >web designer <img src="https://picsum.photos/100" alt="" /></span
         >
         <div>
-          <span class="cursew"> based in ahmedabad</span>
+          <span class="cursew"><span class="saol-italic lowercase"> based in</span> ahmedabad</span>
         </div>
       </div>
     </div>

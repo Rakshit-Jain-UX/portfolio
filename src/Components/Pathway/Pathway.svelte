@@ -1,7 +1,7 @@
 <script>
-  import { onMount } from 'svelte';
-  import { gsap } from 'gsap';
-  import imagesLoaded from 'imagesloaded';
+  import { onMount } from "svelte";
+  import { gsap } from "gsap";
+  import imagesLoaded from "imagesloaded";
 
   import imgo from "../../assets/images/1.png";
   import imgt from "../../assets/images/2.png";
@@ -23,13 +23,13 @@
 
   const MathUtils = {
     lerp: (a, b, n) => (1 - n) * a + n * b,
-    distance: (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1)
+    distance: (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1),
   };
 
   const getMousePos = (ev) => {
     return {
       x: ev.clientX,
-      y: ev.clientY
+      y: ev.clientY,
     };
   };
 
@@ -53,39 +53,63 @@
     img.getRect(); // Ensure updated position
     gsap.killTweensOf(img.DOM.el);
 
-    gsap.timeline()
+    gsap
+      .timeline()
       .set(img.DOM.el, {
         opacity: 1,
         scale: 1,
-        filter: "blur(0px)",
         zIndex: zIndexVal,
         x: cacheMousePos.x - img.rect.width / 2,
-        y: cacheMousePos.y - img.rect.height / 2
+        y: cacheMousePos.y - img.rect.height / 2,
       })
-      .to(img.DOM.el, {
-        duration: 0.9,
-        ease: "expo.out",
-        x: mousePos.x - img.rect.width / 2,
-        y: mousePos.y - img.rect.height / 2
-      }, 0)
-      .to(img.DOM.el, {
-        duration: 1,
-        ease: "power1.out",
-        opacity: 0,
-        filter: "blur(10px)"
-      }, 0.4)
-      .to(img.DOM.el, {
-        duration: 1,
-        ease: "quint.out",
-        scale: 0.2
-      }, 0.4);
+      .to(
+        img.DOM.el,
+        {
+          duration: 0.9,
+          ease: "expo.out",
+          x: mousePos.x - img.rect.width / 2,
+          y: mousePos.y - img.rect.height / 2,
+        },
+        0
+      )
+      .to(
+        img.DOM.el,
+        {
+          duration: 1,
+          ease: "power1.out",
+          opacity: 0,
+        },
+        0.8
+      )
+      .to(
+        img.DOM.el,
+        {
+          duration: 1,
+          ease: "quint.out",
+          scale: 0,
+        },
+        0.8
+      );
   }
 
   function renderLoop() {
-    const distance = MathUtils.distance(mousePos.x, mousePos.y, lastMousePos.x, lastMousePos.y);
+    const distance = MathUtils.distance(
+      mousePos.x,
+      mousePos.y,
+      lastMousePos.x,
+      lastMousePos.y
+    );
 
-    cacheMousePos.x = MathUtils.lerp(cacheMousePos.x || mousePos.x, mousePos.x, 0.1);
-    cacheMousePos.y = MathUtils.lerp(cacheMousePos.y || mousePos.y, mousePos.y, 0.1);
+    cacheMousePos.x = MathUtils.lerp(
+      cacheMousePos.x || mousePos.x,
+      mousePos.x,
+      0.9
+    );
+    cacheMousePos.y = MathUtils.lerp(
+      cacheMousePos.y || mousePos.y,
+      mousePos.y,
+      0.9
+    );
 
     if (isInside && distance > threshold) {
       showNextImage();
@@ -94,7 +118,7 @@
       lastMousePos = { ...mousePos };
     }
 
-    if (!images.some(img => img.isActive()) && zIndexVal !== 1) {
+    if (!images.some((img) => img.isActive()) && zIndexVal !== 1) {
       zIndexVal = 1;
     }
 
@@ -107,14 +131,17 @@
 
       if (trailArea) {
         const rect = trailArea.getBoundingClientRect();
-        isInside = mousePos.x >= rect.left && mousePos.x <= rect.right &&
-                   mousePos.y >= rect.top && mousePos.y <= rect.bottom;
+        isInside =
+          mousePos.x >= rect.left &&
+          mousePos.x <= rect.right &&
+          mousePos.y >= rect.top &&
+          mousePos.y <= rect.bottom;
       }
     });
 
     const imgs = document.querySelectorAll(".content__img");
     imagesLoaded(imgs, () => {
-      images = [...imgs].map(img => new Image(img));
+      images = [...imgs].map((img) => new Image(img));
       imagesTotal = images.length;
       renderLoop();
     });
@@ -129,8 +156,21 @@
     <img class="content__img" src={imgt} alt="Image 2" />
     <img class="content__img" src={imgtt} alt="Image 3" />
     <img class="content__img" src={imgf} alt="Image 4" />
-    <img class="content__img" src={imgff} alt="Image 5" />  
+    <img class="content__img" src={imgff} alt="Image 5" />
     <img class="content__img" src={imgo} alt="Image 1" />
+    <img class="content__img" src={imgt} alt="Image 2" />
+    <img class="content__img" src={imgtt} alt="Image 3" />
+    <img class="content__img" src={imgf} alt="Image 4" />
+    <img class="content__img" src={imgff} alt="Image 5" />
+    <img class="content__img" src={imgo} alt="Image 1" />
+    <img class="content__img" src={imgt} alt="Image 2" />
+    <img class="content__img" src={imgtt} alt="Image 3" />
+    <img class="content__img" src={imgf} alt="Image 4" />
+    <img class="content__img" src={imgff} alt="Image 5" /><img
+      class="content__img"
+      src={imgo}
+      alt="Image 1"
+    />
     <img class="content__img" src={imgt} alt="Image 2" />
     <img class="content__img" src={imgtt} alt="Image 3" />
     <img class="content__img" src={imgf} alt="Image 4" />
@@ -147,7 +187,6 @@
   .trail-area {
     width: 1000px;
     height: 1000px;
-    border: 2px solid #000;
     position: relative;
     margin: 50px auto;
     z-index: 2;
@@ -163,17 +202,9 @@
     left: 0;
     opacity: 0;
     pointer-events: none;
-    transition: filter 0.3s ease;
     z-index: 1;
+    filter: saturate(0);
   }
 
-  .container {
-    position: relative;
-    padding-bottom: 100px;
-  }
-
-  header {
-    text-align: center;
-    margin-top: 50px;
-  }
+ 
 </style>
