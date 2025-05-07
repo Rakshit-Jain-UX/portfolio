@@ -4,6 +4,7 @@
   import Header from "../Components/Header/Header.svelte";
   import Lenis from "lenis";
   import Cursor from "../Components/Cursor/Cursor.svelte";
+  import Footer from "../Components/Footer/Footer.svelte";
   let { children } = $props();
 
   onMount(() => {
@@ -25,4 +26,5 @@
   <main>
     {@render children()}
   </main>
+  <Footer/>
 </div>

@@ -39,11 +39,17 @@ body {
   font-family: "Excon Regular", sans-serif;
 }
 .cus-container {
-  max-width: 1280px;
+  max-width: 1654px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+  width: 100%;
+}
+@media screen and (max-width: 1700px) {
+  .cus-container {
+    max-width: 1414px;
+  }
 }
 .font-b {
   font-family: "Excon Bold", sans-serif;

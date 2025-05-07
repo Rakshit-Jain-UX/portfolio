@@ -10,4 +10,5 @@
   <Banner />
   <Projects />
   <Pathway/>
+  <Todo/>
 </main>
