@@ -12,5 +12,5 @@
   <Banner />
   <Projects />
   <Pathway/>
-  <Todo/>
+  <!-- <Todo/> -->
 </main>
