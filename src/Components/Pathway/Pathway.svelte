@@ -188,16 +188,21 @@
 
 <main class=" bg-primary py-30 test-up">
     <div class="cus-container">
-        <div class="pathway text-[90px] font-b">
-            <h2 class="leading-[90px] flex items-start flex-col">
+        <div class="pathway text-[50px] md:text-[90px] font-b">
+            <h2 class="leading-[50px] md:leading-[90px] flex md:items-start items-center flex-col">
                 <div class="flex items-center gap-4">
                     MY PATHWAY
-                    <span class="saol-italic text-[54px] leading-normal">
+                    <span class="saol-italic text-[32px] md:text-[54px] leading-normal hidden md:block">
                         to
                     </span>
                 </div>
+                <div class="md:hidden">
+                    <span class="saol-italic text-[32px] md:text-[54px] leading-normal">
+                        to memorable
+                    </span>
+                </div>
                 <div class="flex items-center gap-4">
-                    <span class="saol-italic text-[54px] leading-normal">
+                    <span class="saol-italic  text-[32px] md:text-[54px] leading-normal hidden md:block">
                         memorable
                     </span>
                     <span> INTERFACE </span>
@@ -206,7 +211,7 @@
             </h2>
         </div>
         <div class="content-wrap flex">
-            <div class="content trail-area" bind:this={trailArea}>
+            <div class="content hidden md:block trail-area" bind:this={trailArea}>
                 <img class="content__img" src={imgo} alt="Image 1" />
                 <img class="content__img" src={imgt} alt="Image 2" />
                 <img class="content__img" src={imgtt} alt="Image 3" />
@@ -232,9 +237,9 @@
                 <img class="content__img" src={imgff} alt="Image 5" />
             </div>
             <div class="content-text mt-[120px]">
-                <div class="content-wrap mb-[54px]">
+                <div class="content-wrap mb-[54px] text-center md:text-left">
                     <h3
-                        class="saol-italic text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
+                        class="saol-italic text-[32px] md:text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
                     >
                         👀 Eyes on detail
                     </h3>
@@ -248,9 +253,9 @@
                         efficient design systems.
                     </p>
                 </div>
-                <div class="content-wrap mb-[54px]">
+                <div class="content-wrap mb-[54px] text-center md:text-left">
                     <h3
-                        class="saol-italic text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
+                        class="saol-italic text-[32px] md:text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
                     >
                         ✨Strategy deliver
                     </h3>
@@ -265,9 +270,9 @@
                         negotiating decisions based on priorities.
                     </p>
                 </div>
-                <div class="content-wrap mb-[0]">
+                <div class="content-wrap mb-[0] text-center md:text-left">
                     <h3
-                        class="saol-italic text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
+                        class="saol-italic text-[32px] md:text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
                     >
                         🤖 Code enthusiast
                     </h3>
@@ -299,6 +304,9 @@
         width: 35%;
         position: relative;
         z-index: 5;
+    }
+    @media screen and (max-width: 767px) {
+        .content-text { width: 100%;}
     }
     img {
         max-width: 100px;

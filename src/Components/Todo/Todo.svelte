@@ -13,22 +13,20 @@
     "https://picsum.photos/400/300?random=4"
   ];
 
-  // Start the automatic carousel
   function startAutoCarousel() {
     intervalId = setInterval(() => {
-      current = (current + 1) % slides.length; // Loop through slides
+      current = (current + 1) % slides.length; 
       updateCarousel();
-    }, 3000); // Change image every 3 seconds
+    }, 2000); 
   }
 
-  // Stop the automatic carousel (optional, for example on hover)
   function stopAutoCarousel() {
-    clearInterval(intervalId); // Stop the carousel
+    clearInterval(intervalId); 
   }
 
   const duration = 1;
 
-  // Update carousel images and their transformations
+
   function updateCarousel() {
     slides.forEach((slide, i) => {
       gsap.killTweensOf(slide);
@@ -47,31 +45,28 @@
           ease: "power3.out",
         });
       } else if (offset === 1 || offset === -3) {
-        // Right image rotates towards the center
         gsap.to(slide, {
           duration: duration,
           xPercent: -50,
-          x: 300,
+          x: window.innerHeight < 767 ? 300 : 200,
           z: -300,
-          rotationY: -45, // Right image faces center
+          rotationY: -45, 
           scale: 1,
           opacity: 1,
           ease: "power3.out",
         });
       } else if (offset === slides.length - 1 || offset === -1) {
-        // Left image rotates towards the center
         gsap.to(slide, {
           duration: duration,
           xPercent: -50,
-          x: -300,
+          x: window.innerHeight < 767 ? -300 : -200,
           z: -300,
-          rotationY: 45, // Left image faces center
+          rotationY: 45,
           scale: 1,
           opacity: 1,
           ease: "power3.out",
         });
       } else {
-        // Other slides are hidden and moved behind the scenes
         gsap.to(slide, {
           duration: duration,
           opacity: 0,
@@ -90,19 +85,18 @@
 
     // Optional: Pause carousel on hover
     const carousel = document.querySelector('.carousel');
-    carousel.addEventListener('mouseenter', stopAutoCarousel);
-    carousel.addEventListener('mouseleave', startAutoCarousel);
   });
 </script>
 
 <style>
   .wrap {
     min-height: 100vh;
+    overflow: hidden;
   }
   .carousel {
     position: relative;
     width: 100%;
-    height: 600px; /* Adjust to the desired height */
+    height: 600px; 
     perspective: 1000px;
     display: flex;
     justify-content: center;
@@ -112,7 +106,7 @@
     display: flex;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s ease; /* Ensure smooth transition */
+    transition: transform 1s ease; 
   }
 
   .carousel__slide {
@@ -124,7 +118,16 @@
     object-fit: cover;
     transform-origin: center center;
   }
-
+  @media screen and (max-width: 767px) {
+    .carousel {
+      width: 100vw;
+      height: 400px;
+      perspective: 1000px;
+    }
+    .carousel__slide {
+      width: 250px;
+    }
+  }
   /* Styling the images */
   .carousel__slide img {
     width: 100%;
@@ -133,10 +136,10 @@
   }
 </style>
 
-<div class="wrap bg-[#F6F6F1] py-20">
+<div class="wrap bg-[#F6F6F1] py-60">
   <h2 class="text-center ">
     <span class="block">If you wanna gossip...</span>
-    <span class="font-b text-[80px]" >WHAT I LIKE TO DO?</span>
+    <span class="font-b text-[50px] leading-[50px] md:leading-[90px] md:text-[90px]" >WHAT I LIKE TO DO?</span>
   </h2>
    <div class="carousel h-dvh mt-20 ">
     <div class="carousel__track">

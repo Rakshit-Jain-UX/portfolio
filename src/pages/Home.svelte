@@ -11,6 +11,6 @@
   <Loader/>
   <Banner />
   <Projects />
-  <!-- <Pathway/> -->
-  <!-- <Todo/> -->
+  <Pathway/>
+  <Todo/>
 </main>

@@ -113,7 +113,7 @@
                     trigger: section,
                     start: "top center",
                     end: "bottom center",
-                    markers: true,
+                    markers: false,
                     onEnter: () => updateTitle(title, desc, href),
                     onEnterBack: () => updateTitle(title, desc, href),
                     onUpdate: (self) => {
@@ -140,7 +140,7 @@
         ScrollTrigger.create({
             start: "top top", // When the top of the page hits the top of the viewport
             end: "bottom top",
-            markers: true,
+            markers: false,
             onUpdate: (self) => {
                 const isActive = triggers.some((t) => t.isActive);
                 if (!isActive) {
@@ -170,73 +170,74 @@
     });
 
     const projects = [
-        {
-            id: "project-beta",
-            title: "Beta",
-            description: "{FE , LE}",
-            link: "https://link.com/project-beta",
-            left: {
-                type: "video",
-                src: "https://framerusercontent.com/assets/dSNnQiBBZNAAOJnvT4kpDdOJtDk.mp4",
-                style: " max-h-[400px]  lg:max-w-[418px] lg:max-h-[618px] width: 100%; height: auto;",
-            },
-            right: {
-                type: "image",
-                src: imgt,
-                style: "md:max-w-[684px] md:max-h-[604px] width: 100%; height: auto; hidden md:block",
-            },
+    {
+        id: "project-beta",
+        title: "Beta",
+        description: "{FE , LE}",
+        link: "https://link.com/project-beta",
+        left: {
+            type: "video",
+            src: "https://framerusercontent.com/assets/dSNnQiBBZNAAOJnvT4kpDdOJtDk.mp4",
+            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
         },
-        {
-            id: "project-gamma",
-            title: "Gamma",
-            description: "{FE , LE}",
-            link: "https://link.com/project-gamma",
-            left: {
-                type: "image",
-                src: imgtt,
-                style: "max-w-[485px] max-h-[485px] width: 100%; height: auto;",
-            },
-            right: {
-                type: "video",
-                src: "https://framerusercontent.com/assets/EI9adVb6jBzKn2ODPb34suAwJ8.mp4",
-                loop: true,
-                style: " max-w-[685px] max-h-[485px] width: 100%; height: 100%; hidden md:block",
-            },
+        right: {
+            type: "image",
+            src: imgt,
+            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
         },
-        {
-            id: "project-delta",
-            title: "Delta",
-            description: "{FE , LE}",
-            link: "https://link.com/project-delta",
-            left: {
-                type: "image",
-                src: imgff,
-                style: "max-w-[418px;] max-h-[614px] width: 100%; height: 100%;",
-            },
-            right: {
-                type: "image",
-                src: imgs,
-                style: "max-w-[684px] max-h-[604px] width: 100%; height: 100%; hidden md:block",
-            },
+    },
+    {
+        id: "project-gamma",
+        title: "Gamma",
+        description: "{FE , LE}",
+        link: "https://link.com/project-gamma",
+        left: {
+            type: "image",
+            src: imgtt,
+            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
         },
-        {
-            id: "project-echo",
-            title: "Echo",
-            description: "{FE , LE}",
-            link: "https://link.com/project-echo",
-            left: {
-                type: "image",
-                src: imgss,
-                style: "max-w-[418px] max-h-[614px] width: 100%; height: auto;",
-            },
-            right: {
-                type: "video",
-                src: "https://framerusercontent.com/assets/CS9lgYq3S5unC5afuATaIybOxdw.mp4",
-                loop: true,
-                style: "max-h-[464px] max-w-[585px] width: 100%; height: auto; hidden md:block",
-            },
+        right: {
+            type: "video",
+            src: "https://framerusercontent.com/assets/EI9adVb6jBzKn2ODPb34suAwJ8.mp4",
+            loop: true,
+            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
         },
-    ];
+    },
+    {
+        id: "project-delta",
+        title: "Delta",
+        description: "{FE , LE}",
+        link: "https://link.com/project-delta",
+        left: {
+            type: "image",
+            src: imgff,
+            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
+        },
+        right: {
+            type: "image",
+            src: imgs,
+            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
+        },
+    },
+    {
+        id: "project-echo",
+        title: "Echo",
+        description: "{FE , LE}",
+        link: "https://link.com/project-echo",
+        left: {
+            type: "image",
+            src: imgss,
+            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
+        },
+        right: {
+            type: "video",
+            src: "https://framerusercontent.com/assets/CS9lgYq3S5unC5afuATaIybOxdw.mp4",
+            loop: true,
+            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
+        },
+    },
+];
+
 </script>
 
 <main class="bg-[#F6F6F1] h-min main">
