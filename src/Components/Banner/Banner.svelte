@@ -9,15 +9,12 @@
         <span class="text-[18px] text-[#736673]">Hi! I’m Rakshit Jain</span>
         <div class="wrap">
             <div
-                class="font-b leading-[90px] flex justify-center flex-wrap uppercase header text-[30px] sm:text-[60px] md:text-[90px] gap-[24px]"
+                class="font-b leading-[90px] flex justify-center flex-wrap uppercase header text-[30px] sm:text-[60px] md:text-[90px] gap-[24px] flex-col   "
             >
                 <span class="flex-center"
-                    >web designer <img
-                        src="https://picsum.photos/100"
-                        alt=""
-                    /></span
+                    >web designer </span
                 >
-                <div>
+                <div class="">
                     <span class="cursew"
                         ><span class="saol-italic lowercase"> based in</span> ahmedabad</span
                     >

@@ -21,8 +21,8 @@
             const leftEl = section.querySelector(".left img, .left video");
             const rightEl = section.querySelector(".right img");
 
-            const moveMore = -30;
-            const moveLess = 0;
+            const moveMore = -90;
+            const moveLess = -45;
             const isEven = index % 2 === 0;
 
             gsap.to(leftEl, {
@@ -113,6 +113,7 @@
                     trigger: section,
                     start: "top center",
                     end: "bottom center",
+                    markers: true,
                     onEnter: () => updateTitle(title, desc, href),
                     onEnterBack: () => updateTitle(title, desc, href),
                     onUpdate: (self) => {
@@ -139,6 +140,7 @@
         ScrollTrigger.create({
             start: "top top", // When the top of the page hits the top of the viewport
             end: "bottom top",
+            markers: true,
             onUpdate: (self) => {
                 const isActive = triggers.some((t) => t.isActive);
                 if (!isActive) {
@@ -166,15 +168,86 @@
             },
         });
     });
+
+    const projects = [
+        {
+            id: "project-beta",
+            title: "Beta",
+            description: "{FE , LE}",
+            link: "https://link.com/project-beta",
+            left: {
+                type: "video",
+                src: "https://framerusercontent.com/assets/dSNnQiBBZNAAOJnvT4kpDdOJtDk.mp4",
+                style: " max-h-[400px]  lg:max-w-[418px] lg:max-h-[618px] width: 100%; height: auto;",
+            },
+            right: {
+                type: "image",
+                src: imgt,
+                style: "md:max-w-[684px] md:max-h-[604px] width: 100%; height: auto; hidden md:block",
+            },
+        },
+        {
+            id: "project-gamma",
+            title: "Gamma",
+            description: "{FE , LE}",
+            link: "https://link.com/project-gamma",
+            left: {
+                type: "image",
+                src: imgtt,
+                style: "max-w-[485px] max-h-[485px] width: 100%; height: auto;",
+            },
+            right: {
+                type: "video",
+                src: "https://framerusercontent.com/assets/EI9adVb6jBzKn2ODPb34suAwJ8.mp4",
+                loop: true,
+                style: " max-w-[685px] max-h-[485px] width: 100%; height: 100%; hidden md:block",
+            },
+        },
+        {
+            id: "project-delta",
+            title: "Delta",
+            description: "{FE , LE}",
+            link: "https://link.com/project-delta",
+            left: {
+                type: "image",
+                src: imgff,
+                style: "max-w-[418px;] max-h-[614px] width: 100%; height: 100%;",
+            },
+            right: {
+                type: "image",
+                src: imgs,
+                style: "max-w-[684px] max-h-[604px] width: 100%; height: 100%; hidden md:block",
+            },
+        },
+        {
+            id: "project-echo",
+            title: "Echo",
+            description: "{FE , LE}",
+            link: "https://link.com/project-echo",
+            left: {
+                type: "image",
+                src: imgss,
+                style: "max-w-[418px] max-h-[614px] width: 100%; height: auto;",
+            },
+            right: {
+                type: "video",
+                src: "https://framerusercontent.com/assets/CS9lgYq3S5unC5afuATaIybOxdw.mp4",
+                loop: true,
+                style: "max-h-[464px] max-w-[585px] width: 100%; height: auto; hidden md:block",
+            },
+        },
+    ];
 </script>
 
 <main class="bg-[#F6F6F1] h-min main">
     <div
         class="scroll-head min-h-dvh flex-center sticky top-0 z-10 w-max mx-auto mix-blend-difference text-center flex-col"
     >
-        <h2 class="text-[80px] uppercase font-b text-[#fff] leading-tight">
-            <span class="block text-[18px] mb-1">Scroll to explore my</span>
-            <p class="cursor-target font-medium">Projects</p>
+        <h2 class="text-[54px] lg:text-[80px] text-[#fff] leading-tight">
+            <span class="block text-[16px] lg:text-[18px] mb-1"
+                >Scroll to explore my</span
+            >
+            <p class="cursor-target font-medium uppercase font-b">Projects</p>
             <a
                 href="#"
                 class="hidden cursor-target transition-all saol-italic capitalize font-medium"
@@ -188,99 +261,57 @@
     </div>
 
     <div class="cus-container">
-        <div
-            class="project-section min-h-dvh grid sm:grid-cols-2 gap-20px justify-items-between"
-            id="project-beta"
-            data-title="Project Beta"
-            data-description="A sleek project focused on enhancing user interaction using modern web animations."
-            data-link="https://link.com/project-beta"
-        >
-            <div class="left w-[418px] h-[618px]">
-                <video
-                    src="https://framerusercontent.com/assets/dSNnQiBBZNAAOJnvT4kpDdOJtDk.mp4"
-                    muted
-                    autoplay
-                    class="w-full h-full object-cover"
-                ></video>
-            </div>
-            <div class="right w-[684px] h-[604px]">
-                <img src={imgt} alt="" class="w-full h-full object-cover" />
-            </div>
-        </div>
+        {#each projects as project}
+            <div
+                class="project-section min-h-dvh flex justify-between "
+                id={project.id}
+                data-title={project.title}
+                data-description={project.description}
+                data-link={project.link}
+            >
+                <div class={`left ${project.left.style}`}>
+                    {#if project.left.type === "video"}
+                        <video
+                            src={project.left.src}
+                            muted
+                            autoplay
+                            playsinline
+                            loop={!!project.left.loop}
+                            class="w-full h-full object-cover"
+                        ></video>
+                    {:else}
+                        <img
+                            src={project.left.src}
+                            alt={project.title}
+                            class="w-full h-full object-cover"
+                        />
+                    {/if}
+                </div>
 
-        <div
-            class="project-section min-h-dvh grid sm:grid-cols-2 gap-20px"
-            id="project-gamma"
-            data-title="Project Gamma"
-            data-description="This project showcases deep visual storytelling through creative imagery and layout."
-            data-link="https://link.com/project-gamma"
-        >
-            <div class="left">
-                <img src={imgtt} alt="Project Gamma" width="485" height="485" />
+                <div class={`right ${project.right.style}`}>
+                    {#if project.right.type === "video"}
+                        <video
+                            src={project.right.src}
+                            muted
+                            autoplay
+                            playsinline
+                            loop={!!project.right.loop}
+                            class="w-full h-full object-cover"
+                        ></video>
+                    {:else}
+                        <img
+                            src={project.right.src}
+                            alt={project.title}
+                            class="w-full h-full object-cover"
+                        />
+                    {/if}
+                </div>
             </div>
-            <div class="right w-[785px] h-[485px]">
-                <video
-                    src="https://framerusercontent.com/assets/EI9adVb6jBzKn2ODPb34suAwJ8.mp4"
-                    muted
-                    autoplay
-                    loop
-                ></video>
-            </div>
-        </div>
-
-        <div
-            class="project-section min-h-dvh grid sm:grid-cols-2 gap-20px"
-            id="project-delta"
-            data-title="Project Delta"
-            data-description="An experimental layout exploring color theory and responsive visual balance."
-            data-link="https://link.com/project-delta"
-        >
-            <div class="left w-[418px] h-[614px]">
-                <img
-                    src={imgff}
-                    alt="Project Delta"
-                    class="w-full h-full object-cover"
-                />
-            </div>
-            <div class="right w-[684px] h-[604px]">
-                <img src={imgs} alt="" class="w-full h-full object-cover" />
-            </div>
-        </div>
-
-        <div
-            class="project-section min-h-dvh grid sm:grid-cols-2 gap-20px justify-between"
-            id="project-echo"
-            data-title="Project Echo"
-            data-description="A fullscreen video experience that reacts to user scroll using parallax dynamics."
-            data-link="https://link.com/project-echo"
-        >
-            <div class="left w-[418px] h-[614px]">
-                <img src={imgss} alt="" class="w-full h-full object-cover" />
-            </div>
-            <div class="right w-[585px] h-[464px]">
-                <video
-                    autoplay
-                    loop
-                    playsinline
-                    muted
-                    class="w-full h-full object-cover"
-                >
-                    <source
-                        src="https://framerusercontent.com/assets/CS9lgYq3S5unC5afuATaIybOxdw.mp4"
-                    />
-                </video>
-            </div>
-        </div>
+        {/each}
     </div>
 </main>
 
 <style>
-    .project-section .left {
-        margin-right: 100px;
-    }
-    .project-section .right {
-        margin-left: 100px;
-    }
     .project-section .left,
     .project-section .right {
         position: relative;
@@ -294,7 +325,7 @@
     }
 
     .project-description {
-        max-width: 600px;
+        max-width: 300px;
         line-height: 1.5;
     }
 </style>

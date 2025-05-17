@@ -97,7 +97,7 @@
 
 <style>
   .wrap {
-    height: 100vh;
+    min-height: 100vh;
   }
   .carousel {
     position: relative;
@@ -133,8 +133,12 @@
   }
 </style>
 
-<div class="wrap">
-  <div class="carousel  h-dvh">
+<div class="wrap bg-[#F6F6F1] py-20">
+  <h2 class="text-center ">
+    <span class="block">If you wanna gossip...</span>
+    <span class="font-b text-[80px]" >WHAT I LIKE TO DO?</span>
+  </h2>
+   <div class="carousel h-dvh mt-20 ">
     <div class="carousel__track">
       {#each slideImages as img, index}
         <div class="carousel__slide">
@@ -142,6 +146,6 @@
         </div>
       {/each}
     </div>
-  </div>
+ </div>
   
 </div>

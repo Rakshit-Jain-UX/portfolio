@@ -52,17 +52,7 @@
           ALL GOOD THINGS
           <br />
           <span class="saol-italic">starts with</span>
-          <span>
-            <a
-              href="#"
-              class="cursor-target"
-              bind:this={link}
-              on:mouseenter={onMouseEnter}
-              on:mouseleave={onMouseLeave}
-            >
-              HELLO
-            </a>
-          </span>
+        
         </h2>
       </div>
     </footer>
