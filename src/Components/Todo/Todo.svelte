@@ -10,27 +10,28 @@
     "https://picsum.photos/400/300?random=1",
     "https://picsum.photos/400/300?random=2",
     "https://picsum.photos/400/300?random=3",
-    "https://picsum.photos/400/300?random=4"
+    "https://picsum.photos/400/300?random=4",
+    "https://picsum.photos/400/300?random=5",
+    "https://picsum.photos/400/300?random=6",
   ];
 
   function startAutoCarousel() {
     intervalId = setInterval(() => {
-      current = (current + 1) % slides.length; 
+      current = (current + 1) % slides.length;
       updateCarousel();
-    }, 2000); 
+    }, 2000);
   }
 
   function stopAutoCarousel() {
-    clearInterval(intervalId); 
+    clearInterval(intervalId);
   }
 
   const duration = 1;
 
-
   function updateCarousel() {
     slides.forEach((slide, i) => {
       gsap.killTweensOf(slide);
-      const offset = ((i - current + slides.length) % slides.length);
+      const offset = (i - current + slides.length) % slides.length;
 
       if (offset === 0) {
         // Center image stays in place
@@ -48,9 +49,9 @@
         gsap.to(slide, {
           duration: duration,
           xPercent: -50,
-          x: window.innerHeight < 767 ? 300 : 200,
+          x: window.innerWidth < 767 ? 200 : 300,
           z: -300,
-          rotationY: -45, 
+          rotationY: -45,
           scale: 1,
           opacity: 1,
           ease: "power3.out",
@@ -59,7 +60,7 @@
         gsap.to(slide, {
           duration: duration,
           xPercent: -50,
-          x: window.innerHeight < 767 ? -300 : -200,
+          x: window.innerWidth < 767 ? -200 : -300,
           z: -300,
           rotationY: 45,
           scale: 1,
@@ -84,19 +85,44 @@
     startAutoCarousel();
 
     // Optional: Pause carousel on hover
-    const carousel = document.querySelector('.carousel');
+    const carousel = document.querySelector(".carousel");
   });
 </script>
 
+<div class="wrap bg-[#F6F6F1] py-60">
+  <h2 class="text-center">
+    <span class="block">If you wanna gossip...</span>
+    <span
+      class="font-b text-[50px] leading-[50px] md:leading-[90px] md:text-[90px]"
+      >WHAT I LIKE TO DO?</span
+    >
+  </h2>
+  <div class="topz flex-center sticky top-0">
+    <div class="carousel h-dvh mt-20">
+      <div class="carousel__track">
+        {#each slideImages as img, index}
+          <div class="carousel__slide">
+            <img src={img} alt={`Slide ${index}`} />
+          </div>
+        {/each}
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
-  .wrap {
+  .topz {
+    position: sticky;
+    top: 0%;
     min-height: 100vh;
-    overflow: hidden;
+  }
+  .wrap {
+    min-height: 200vh;
   }
   .carousel {
     position: relative;
     width: 100%;
-    height: 600px; 
+    height: 600px;
     perspective: 1000px;
     display: flex;
     justify-content: center;
@@ -106,7 +132,7 @@
     display: flex;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s ease; 
+    transition: transform 1s ease;
   }
 
   .carousel__slide {
@@ -135,20 +161,3 @@
     object-fit: cover;
   }
 </style>
-
-<div class="wrap bg-[#F6F6F1] py-60">
-  <h2 class="text-center ">
-    <span class="block">If you wanna gossip...</span>
-    <span class="font-b text-[50px] leading-[50px] md:leading-[90px] md:text-[90px]" >WHAT I LIKE TO DO?</span>
-  </h2>
-   <div class="carousel h-dvh mt-20 ">
-    <div class="carousel__track">
-      {#each slideImages as img, index}
-        <div class="carousel__slide">
-          <img src={img} alt={`Slide ${index}`} />
-        </div>
-      {/each}
-    </div>
- </div>
-  
-</div>

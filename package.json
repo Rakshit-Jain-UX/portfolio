@@ -21,8 +21,11 @@
 	},
 	"dependencies": {
 		"animejs": "^3.2.2",
+		"appwrite": "^14.0.1",
+		"firebase": "^11.8.1",
 		"gsap": "^3.13.0",
 		"imagesloaded": "^5.0.0",
-		"lenis": "^1.2.3"
+		"lenis": "^1.2.3",
+		"quill-delta-to-html": "^0.12.1"
 	}
 }

@@ -2,47 +2,7 @@
     import { onMount } from 'svelte';
     import gsap from 'gsap';
   
-    let link;
   
-    // Magnetic effect on mousemove
-    const magneticEffect = (e) => {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-      
-      gsap.to(link, {
-        x: mouseX - link.offsetWidth / 2,
-        y: mouseY - link.offsetHeight / 2,
-        duration: 0.1,
-        ease: 'power1.out',
-      });
-    };
-  
-    // Hover effects for scale
-    const onMouseEnter = () => {
-      gsap.to(link, {
-        scale: 1.2,
-        ease: 'power3.out',
-        duration: 0.3,
-      });
-    };
-  
-    const onMouseLeave = () => {
-      gsap.to(link, {
-        scale: 1,
-        ease: 'power3.in',
-        duration: 0.3,
-      });
-    };
-  
-    onMount(() => {
-      // Attach the mousemove event when the component mounts
-      document.addEventListener('mousemove', magneticEffect);
-  
-      // Clean up the event listener on component destroy
-      return () => {
-        document.removeEventListener('mousemove', magneticEffect);
-      };
-    });
   </script>
   
   <main>
