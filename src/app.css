@@ -45,6 +45,12 @@ body {
   padding-right: 20px;
   width: 100%;
 }
+.blog-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
 @media screen and (max-width: 1700px) {
   .cus-container {
     max-width: 1414px;
@@ -80,3 +86,7 @@ body {
 .saol-italic {
   font-family: var(--secondary-font);
 }
+
+ .blog-content .heading-0 {
+    font-size: 2.25rem !important; /* 36px */
+  }

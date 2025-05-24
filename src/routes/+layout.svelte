@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import "../app.css";
+    // import "../app.css";
     import Header from "../Components/Header/Header.svelte";
     import Lenis from "lenis";
     import Cursor from "../Components/Cursor/Cursor.svelte";
