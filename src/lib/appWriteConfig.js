@@ -6,9 +6,11 @@ client
     .setEndpoint(import.meta.env.VITE_ENDPOINT)
     .setProject(import.meta.env.VITE_PROJECT_ID_APP);
 
+
 // Export all necessary Appwrite services
 export const account = new Account(client);
 export const databases = new Databases(client);
 export const storage = new Storage(client);
 
+console.log(databases)
 export { ID };
