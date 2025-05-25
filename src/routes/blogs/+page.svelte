@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { databases } from "$lib/appWriteConfig";
   import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
+  import { blogStore } from "$lib/stores/blogData";
 
   const DATABASE_ID = import.meta.env.VITE_DB_ID;
   const COLLECTION_ID = import.meta.env.VITE_COLLECTION_ID;
@@ -10,7 +11,15 @@
   let displayedBlogs = [];
   let blogsPerPage = 6;
   let currentPage = 1;
+  let initialized = false;
   let loading = true;
+
+  blogStore.subscribe((data) => {
+    allBlogs = data.allBlogs;
+    blogsPerPage = data.blogsPerPage;
+    currentPage = data.currentPage;
+    initialized = data.initialized;
+  });
 
   function epochToIST(epochMs) {
     const date = new Date(epochMs);
@@ -19,9 +28,6 @@
     const yyyy = istDate.getFullYear();
     const mm = String(istDate.getMonth() + 1).padStart(2, "0");
     const dd = String(istDate.getDate()).padStart(2, "0");
-    const hh = String(istDate.getHours()).padStart(2, "0");
-    const min = String(istDate.getMinutes()).padStart(2, "0");
-    const ss = String(istDate.getSeconds()).padStart(2, "0");
     return `${yyyy}/${mm}/${dd}`;
   }
 
@@ -37,40 +43,54 @@
     return images;
   }
 
+  function updateDisplayedBlogs() {
+    const end = currentPage * blogsPerPage;
+    displayedBlogs = allBlogs.slice(0, end);
+  }
+
   function loadMoreBlogs() {
-    const start = displayedBlogs.length;
-    const end = start + blogsPerPage;
-    displayedBlogs = [...displayedBlogs, ...allBlogs.slice(start, end)];
+    currentPage += 1;
+    updateDisplayedBlogs();
+    blogStore.update((data) => ({
+      ...data,
+      currentPage
+    }));
   }
 
   onMount(async () => {
-    try {
-      const res = await databases.listDocuments(DATABASE_ID, COLLECTION_ID);
-      allBlogs = res.documents.map((doc) => {
-        const delta = JSON.parse(doc.content);
-        const converter = new QuillDeltaToHtmlConverter(delta.ops, {});
-        const html = converter.convert();
-        const images = extractImagesFromDelta(delta);
-        const firstImage = images.length > 0 ? images[0] : null;
-        return {
-          id: doc.$id,
-          title: doc.title,
-          html,
-          date: epochToIST(doc.timestamp),
-          firstImage,
-        };
-      });
+    if (!initialized) {
+      try {
+        const res = await databases.listDocuments(DATABASE_ID, COLLECTION_ID);
+        const blogs = res.documents.map((doc) => {
+          const delta = JSON.parse(doc.content);
+          const converter = new QuillDeltaToHtmlConverter(delta.ops, {});
+          const html = converter.convert();
+          const images = extractImagesFromDelta(delta);
+          const firstImage = images.length > 0 ? images[0] : null;
+          return {
+            id: doc.$id,
+            title: doc.title,
+            html,
+            date: epochToIST(doc.timestamp),
+            firstImage,
+          };
+        });
 
-      // Initially load the first batch
-      displayedBlogs = allBlogs.slice(0, blogsPerPage);
-    } catch (error) {
-      console.error("Error fetching blogs:", error.message);
-    } finally {
-      loading = false;
+        blogStore.set({
+          allBlogs: blogs,
+          initialized: true,
+          blogsPerPage,
+          currentPage
+        });
+      } catch (error) {
+        console.error("Error fetching blogs:", error.message);
+      }
     }
+
+    updateDisplayedBlogs();
+    loading = false;
   });
 </script>
-
 
 {#if loading}
   <div class="bg-primary py-20 px-4">

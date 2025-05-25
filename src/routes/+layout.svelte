@@ -6,6 +6,7 @@
     import Cursor from "../Components/Cursor/Cursor.svelte";
     import Footer from "../Components/Footer/Footer.svelte";
   import { navigating } from "$app/stores";
+  import Loader from "../Components/Loader/Loader.svelte";
     let { children } = $props();
 
     onMount(() => {
@@ -22,6 +23,8 @@
   </div>
 {/if}
 <div class="app">
+  <Loader/>
+
     <Header />
     <Cursor />
     <main>

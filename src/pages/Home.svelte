@@ -8,7 +8,6 @@
 </script>
 
 <main>
-  <Loader/>
   <Banner />
   <Projects />
   <Pathway/>
