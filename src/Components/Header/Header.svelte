@@ -38,6 +38,15 @@
               class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0"
               >Contact</span
             >
+          </a>  <a href="/blogs" class="relative overflow-hidden group">
+            <span
+              class="relative block transition-transform duration-300 group-hover:-translate-y-5"
+              >Blogs</span
+            >
+            <span
+              class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0"
+              >Blogs</span
+            >
           </a>
         </div>
       </div>

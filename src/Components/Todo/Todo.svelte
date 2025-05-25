@@ -117,7 +117,7 @@
     min-height: 100vh;
   }
   .wrap {
-    min-height: 200vh;
+    min-height: 400vh;
   }
   .carousel {
     position: relative;
@@ -126,6 +126,7 @@
     perspective: 1000px;
     display: flex;
     justify-content: center;
+  transform: translateZ(0);
   }
 
   .carousel__track {
@@ -143,6 +144,7 @@
     height: 100%;
     object-fit: cover;
     transform-origin: center center;
+    
   }
   @media screen and (max-width: 767px) {
     .carousel {

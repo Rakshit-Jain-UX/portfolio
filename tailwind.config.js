@@ -9,6 +9,7 @@ module.exports = {
         accent: "var(--color-accent)",
         neutral: "var(--color-neutral)",
       },
+      
     },
   },
   plugins: [require('@tailwindcss/typography')],
