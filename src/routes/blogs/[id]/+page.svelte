@@ -3,6 +3,11 @@
   const { blog } = data;
 
   import { onMount } from "svelte";
+  import { afterNavigate } from '$app/navigation';
+
+  afterNavigate(() => {
+    window.scrollTo(0, 0);
+  });
 
   let modifiedHtml = blog.html;
   let tableOfContents = [];
@@ -45,66 +50,67 @@
 
     // Style tags inline
     const styleMap = {
-  h1: "font-size:2.25rem;font-weight:700;margin:1.5rem 0 1rem;",
-  h2: "font-size:1.875rem;font-weight:700;margin:1.5rem 0 1rem;",
-  h3: "font-size:1.5rem;font-weight:700;margin:1.5rem 0 1rem;",
-  h4: "font-size:1.25rem;font-weight:700;margin:1.5rem 0 1rem;",
-  h5: "font-size:1.125rem;font-weight:700;margin:1.5rem 0 1rem;",
-  h6: "font-size:1rem;font-weight:700;font-style:italic;margin:1.5rem 0 1rem;",
+      h1: "font-size:2.25rem;font-weight:700;margin:1.5rem 0 1rem;",
+      h2: "font-size:1.875rem;font-weight:700;margin:1.5rem 0 1rem;",
+      h3: "font-size:1.5rem;font-weight:700;margin:1.5rem 0 1rem;",
+      h4: "font-size:1.25rem;font-weight:700;margin:1.5rem 0 1rem;",
+      h5: "font-size:1.125rem;font-weight:700;margin:1.5rem 0 1rem;",
+      h6: "font-size:1rem;font-weight:700;font-style:italic;margin:1.5rem 0 1rem;",
 
-  p: "margin:1rem 0;",
-  a: "color:#3b82f6;text-decoration:underline;",
-  img: "max-width:100%;border-radius:2rem;width:100%;box-shadow:0 0 5px #00000040;margin:1rem 0;",
+      p: "margin:1rem 0;",
+      a: "color:#3b82f6;text-decoration:underline;",
+      img: "max-width:100%;border-radius:2rem;width:100%;box-shadow:0 0 5px #00000040;margin:1rem 0;",
 
-  blockquote: "border-left:4px solid #d1d5db;background:#f9fafb;padding:1rem;margin:1rem 0;font-style:italic;color:#4b5563;",
+      blockquote:
+        "border-left:4px solid #d1d5db;background:#f9fafb;padding:1rem;margin:1rem 0;font-style:italic;color:#4b5563;",
 
-  ul: "margin:1rem 0 1rem 1.5rem;padding-left:1.5rem;list-style-type:disc;",
-  ol: "margin:1rem 0 1rem 1.5rem;padding-left:1.5rem;list-style-type:decimal;",
-  li: "margin-bottom:0.5rem;",
+      ul: "margin:1rem 0 1rem 1.5rem;padding-left:1.5rem;list-style-type:disc;",
+      ol: "margin:1rem 0 1rem 1.5rem;padding-left:1.5rem;list-style-type:decimal;",
+      li: "margin-bottom:0.5rem;",
 
-  strong: "font-weight:700;",
-  em: "font-style:italic;",
-  u: "text-decoration:underline;",
-  s: "text-decoration:line-through;",
+      strong: "font-weight:700;",
+      em: "font-style:italic;",
+      u: "text-decoration:underline;",
+      s: "text-decoration:line-through;",
 
-  code: "font-family:monospace;background:#f3f4f6;color:#111827;padding:0.2rem 0.4rem;border-radius:0.375rem;",
-  pre: "font-family:monospace;background:#f3f4f6;padding:1rem;border-radius:0.5rem;overflow-x:auto;margin:1rem 0;",
+      code: "font-family:monospace;background:#f3f4f6;color:#111827;padding:0.2rem 0.4rem;border-radius:0.375rem;",
+      pre: "font-family:monospace;background:#f3f4f6;padding:1rem;border-radius:0.5rem;overflow-x:auto;margin:1rem 0;",
 
-  hr: "border:none;border-top:1px solid #d1d5db;margin:2rem 0;",
+      hr: "border:none;border-top:1px solid #d1d5db;margin:2rem 0;",
 
-  button: "background:#3b82f6;color:white;border:none;padding:0.5rem 1rem;border-radius:0.375rem;font-weight:500;cursor:pointer;",
+      button:
+        "background:#3b82f6;color:white;border:none;padding:0.5rem 1rem;border-radius:0.375rem;font-weight:500;cursor:pointer;",
 
-  table: "width:100%;border-collapse:collapse;margin:1rem 0;",
-  thead: "background:#f3f4f6;font-weight:600;",
-  th: "padding:0.75rem;border:1px solid #e5e7eb;text-align:left;",
-  td: "padding:0.75rem;border:1px solid #e5e7eb;text-align:left;",
-  tr: "", // leave as is unless specific style needed
-};
-// Handle Quill class-based styles
-const quillClassMap = {
-  "ql-align-center": "text-align:center;",
-  "ql-align-right": "text-align:right;",
-  "ql-align-justify": "text-align:justify;",
-};
+      table: "width:100%;border-collapse:collapse;margin:1rem 0;",
+      thead: "background:#f3f4f6;font-weight:600;",
+      th: "padding:0.75rem;border:1px solid #e5e7eb;text-align:left;",
+      td: "padding:0.75rem;border:1px solid #e5e7eb;text-align:left;",
+      tr: "", // leave as is unless specific style needed
+    };
+    // Handle Quill class-based styles
+    const quillClassMap = {
+      "ql-align-center": "text-align:center;",
+      "ql-align-right": "text-align:right;",
+      "ql-align-justify": "text-align:justify;",
+    };
 
-Object.keys(quillClassMap).forEach((className) => {
-  const elements = doc.querySelectorAll(`.${className}`);
-  elements.forEach((el) => {
-    const existing = el.getAttribute("style") || "";
-    el.setAttribute("style", `${existing}${quillClassMap[className]}`);
-  });
-});
+    Object.keys(quillClassMap).forEach((className) => {
+      const elements = doc.querySelectorAll(`.${className}`);
+      elements.forEach((el) => {
+        const existing = el.getAttribute("style") || "";
+        el.setAttribute("style", `${existing}${quillClassMap[className]}`);
+      });
+    });
 
-// Handle indentation (e.g., ql-indent-1, ql-indent-2, ...)
-for (let i = 1; i <= 8; i++) {
-  const indentClass = `ql-indent-${i}`;
-  const indentElements = doc.querySelectorAll(`.${indentClass}`);
-  indentElements.forEach((el) => {
-    const existing = el.getAttribute("style") || "";
-    el.setAttribute("style", `${existing}padding-left:${i * 2}rem;`);
-  });
-}
-
+    // Handle indentation (e.g., ql-indent-1, ql-indent-2, ...)
+    for (let i = 1; i <= 8; i++) {
+      const indentClass = `ql-indent-${i}`;
+      const indentElements = doc.querySelectorAll(`.${indentClass}`);
+      indentElements.forEach((el) => {
+        const existing = el.getAttribute("style") || "";
+        el.setAttribute("style", `${existing}padding-left:${i * 2}rem;`);
+      });
+    }
 
     Object.keys(styleMap).forEach((tag) => {
       const elements = doc.querySelectorAll(tag);

@@ -100,7 +100,7 @@
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
     >
       {#each Array(6) as _, i}
-        <div class=" p-4 rounded-lg shadow animate-pulse" key={i}>
+        <div class="bg-white p-4 rounded-lg shadow animate-pulse" key={i}>
           <div class="h-60 bg-gray-300 rounded mb-4"></div>
           <div class="h-4 bg-gray-300 rounded w-1/2 mb-2"></div>
           <div class="h-6 bg-gray-300 rounded w-3/4"></div>
@@ -116,7 +116,7 @@
       <h1 class="text-3xl font-bold mb-8 text-center">Blogs</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {#each displayedBlogs as blog}
-          <a href={`/blogs/${blog.id}`} class="block group">
+          <a href={`/blogs/${blog.id}`} class="block group" on:click={() => window.scrollTo(0,0)}>
             <div
               class="bg-[#F6F6F1] rounded-lg overflow-hidden shadow hover:shadow-md transition"
             >

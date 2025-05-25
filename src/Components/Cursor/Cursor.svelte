@@ -34,7 +34,7 @@
 </script>
 
 <!-- The custom cursor element -->
-<div class="cursor" bind:this={cursor}></div>
+<div class="cursor hidden lg:block" bind:this={cursor}></div>
 
 <style>
   .cursor {
