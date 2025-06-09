@@ -1,27 +1,125 @@
 <script>
-    import { onMount } from 'svelte';
-    import gsap from 'gsap';
-  
-  
-  </script>
-  
-  <main>
-    <footer class="bg-[#212121] h-dvh py-[120px]">
-      <div class="cus-container">
-        <h2 class="text-[100px] font-b text-[#fff]">
-          ALL GOOD THINGS
-          <br />
-          <span class="saol-italic">starts with</span>
-        
-        </h2>
+  import { onMount, tick } from 'svelte';
+  import gsap from 'gsap';
+  import GraphemeSplitter from 'grapheme-splitter';
+
+  const splitter = new GraphemeSplitter();
+
+  let words = ["HELLO", "नमस्ते", "કેમ  છો"];
+  let currentIndex = 0;
+  let currentText = splitter.splitGraphemes(words[currentIndex]);  // <-- split by grapheme clusters
+  let textEls = [];
+
+  let letters = [];
+
+  async function nextWord() {
+    gsap.to(letters, {
+      y: -50,
+      opacity: 0,
+      stagger: 0.05,
+      duration: 0.5,
+      ease: 'power4.inOut',
+      onComplete: async () => {
+        currentIndex = (currentIndex + 1) % words.length;
+        currentText = splitter.splitGraphemes(words[currentIndex]);  // update using grapheme splitter
+
+        await tick();
+        textEls = [...letters];
+
+        gsap.fromTo(
+          textEls,
+          {
+            y: 60,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            stagger: 0.06,
+            duration: 0.7,
+            ease: 'expo.out',
+          }
+        );
+      }
+    });
+  }
+
+  onMount(async () => {
+    await tick();
+    textEls = [...letters];
+    gsap.from(textEls, {
+      y: 50,
+      opacity: 0,
+      stagger: 0.05,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+
+    const interval = setInterval(nextWord, 3000);
+    return () => clearInterval(interval);
+  });
+</script>
+
+<main>
+  <footer class="bg-[#212121] h-dvh pt-[120px] pb-[40px]">
+    <div class="cus-container">
+     <div class="flex flex-col justify-between flex-height">
+       <h2 class="text-[100px] font-b text-[#fff] leading-[1.1]">
+        ALL GOOD THINGS<br />
+      <div class="flex mt-5">  
+        <span class="saol-italic shrink-0">starts with</span><br />
+        <span class="ml-5 block relative w-full">
+         <a href="https://linkedin.com" target="_blank" rel="noopener norefferer" class="cursor-target-blue">
+           <span class="flex w-full absolute">
+            {#each currentText as letter, i}
+              <span
+                class="letter text-white inline-block"
+                bind:this={letters[i]}
+                >{letter}</span
+              >
+            {/each}
+          </span>
+         </a>
+        </span>
       </div>
-    </footer>
-  </main>
-  
-  <style>
-    .cursor-target {
-      display: inline-block;
-      transition: transform 0.1s ease;
-    }
-  </style>
-  
+      </h2>
+      <div class="nav  flex flex-col text-[#968d96]">
+      <div class="flex justify-between">
+          <div class="link">
+          <a href="" class="cursor-target mr-5">Linkedin</a>
+          <a href="" class="cursor-target">Notion</a>
+        </div>
+        <div class="nav">
+          <a href="" class="cursor-target mr-5">Home</a>
+          <a href="" class="cursor-target mr-5">Work</a>
+          <a href="" class="cursor-target mr-5">About</a>
+          <a href="" class="cursor-target">Blogs</a>
+        </div>
+      </div>
+
+         <div class="details flex justify-between mt-5">
+        <span>CONTRA</span>
+        <span>C 2025 Rakshit Jain</span>
+        <span>Back To Top</span>
+      </div>
+      </div>
+
+     
+     </div>
+    </div>
+  </footer>
+</main>
+
+<style>
+  .letter {
+    display: inline-block;
+    font-family:"Excon Bold", "Noto Sans Devanagari", "Noto Sans Gujarati", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 90px;
+  }
+  .flex-height {
+    height: calc(100vh - 160px);
+  }
+</style>

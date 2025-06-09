@@ -4,7 +4,7 @@
 
 <main class="bg-primary">
     <div
-        class="banner cus-container min-h-dvh relative pt-80 pb-52 text-center flex justify-center flex-col gap-[32px]"
+        class="banner cus-container min-h-dvh relative  text-center flex justify-center items-center flex-col gap-[32px]"
     >
         <span class="text-[18px] text-[#736673]">Hi! I’m Rakshit Jain</span>
         <div class="wrap">
@@ -25,11 +25,8 @@
             class="desc mx-auto text-[18px] lg:text-[24px] w-full max-w-[824px] leading-normal text-[#736673]"
         >
             <p>
-                5 years delivering solutions across various industries in a
-                consulting setting. I pair strong visual design skills with
-                expertise in strategy and UX aligned with business objectives.
-                My experience spans diverse sectors: retail, tech startups,
-                healthcare, sports, B2B companies, institutions…
+                
+With 2.5 years of experience crafting intuitive and engaging digital experiences. My work spans various industries, including healthcare, e-commerce, and education, where I blend user-centric design principles with strategic thinking to deliver impactful solutions.
             </p>
         </div>
     </div>

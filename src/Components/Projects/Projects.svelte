@@ -18,8 +18,8 @@
 
         // Parallax inside image box (same as before)
         gsap.utils.toArray(".project-section").forEach((section, index) => {
-            const leftEl = section.querySelector(".left img, .left video");
-            const rightEl = section.querySelector(".right img");
+            const leftEl = section.querySelector(".left");
+            const rightEl = section.querySelector(".right");
 
             const moveMore = -90;
             const moveLess = -45;
@@ -211,12 +211,12 @@
         left: {
             type: "image",
             src: imgff,
-            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
+            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[218px] 2xl:max-h-[318px] w-full h-auto",
         },
         right: {
             type: "image",
             src: imgs,
-            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
+            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[484px] 2xl:max-h-[404px] w-full h-auto hidden md:block",
         },
     },
     {
@@ -227,13 +227,13 @@
         left: {
             type: "image",
             src: imgss,
-            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
+            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[318px] 2xl:max-h-[518px] w-full h-auto",
         },
         right: {
             type: "video",
             src: "https://framerusercontent.com/assets/CS9lgYq3S5unC5afuATaIybOxdw.mp4",
             loop: true,
-            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
+            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[484px] 2xl:max-h-[404px] w-full h-auto hidden md:block",
         },
     },
 ];
@@ -264,7 +264,7 @@
     <div class="cus-container">
         {#each projects as project}
             <div
-                class="project-section min-h-dvh flex justify-between "
+                class="project-section min-h-dvh  flex justify-between "
                 id={project.id}
                 data-title={project.title}
                 data-description={project.description}
@@ -313,10 +313,7 @@
 </main>
 
 <style>
-    .project-section .left,
-    .project-section .right {
-        position: relative;
-    }
+    
 
     .scroll-head {
         text-align: center;

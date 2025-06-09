@@ -24,6 +24,7 @@
 		"animejs": "^3.2.2",
 		"appwrite": "^14.0.1",
 		"firebase": "^11.8.1",
+		"grapheme-splitter": "^1.0.4",
 		"gsap": "^3.13.0",
 		"imagesloaded": "^5.0.0",
 		"lenis": "^1.2.3",

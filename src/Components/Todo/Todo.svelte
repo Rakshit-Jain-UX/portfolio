@@ -48,7 +48,7 @@
       } else if (offset === 1 || offset === -3) {
         gsap.to(slide, {
           duration: duration,
-          xPercent: -50,
+          xPercent: -80,
           x: window.innerWidth < 767 ? 200 : 300,
           z: -300,
           rotationY: -45,
@@ -59,7 +59,7 @@
       } else if (offset === slides.length - 1 || offset === -1) {
         gsap.to(slide, {
           duration: duration,
-          xPercent: -50,
+          xPercent: -20,
           x: window.innerWidth < 767 ? -200 : -300,
           z: -300,
           rotationY: 45,
@@ -108,6 +108,12 @@
       </div>
     </div>
   </div>
+
+  <div class="background-text flex flex-col items-center justify-center text-[178px] saol-italic">
+    <h3>Curious</h3>
+    <h3>Innovative</h3>
+    <h3>Visionary</h3>
+  </div>
 </div>
 
 <style>
@@ -117,12 +123,12 @@
     min-height: 100vh;
   }
   .wrap {
-    min-height: 400vh;
+    min-height: 300vh;
   }
   .carousel {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 460px;
     perspective: 1000px;
     display: flex;
     justify-content: center;
@@ -140,7 +146,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 400px;
+    width: 300px;
     height: 100%;
     object-fit: cover;
     transform-origin: center center;

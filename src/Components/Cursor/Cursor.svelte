@@ -28,6 +28,17 @@
             cursor.classList.remove("cursor-hover");
           }
         });
+        body.addEventListener("mouseover", (e) => {
+          if (e.target.closest("a.cursor-target-blue")) {
+            cursor.classList.add("cursor-hover-blue");
+          }
+        });
+
+        body.addEventListener("mouseout", (e) => {
+          if (e.target.closest("a.cursor-target-blue")) {
+            cursor.classList.remove("cursor-hover-blue");
+          }
+        });
       }
     });
   });

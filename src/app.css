@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500&family=Noto+Sans+Gujarati:wght@500&display=swap');
 @import "tailwindcss";
-
 @theme {
   --color-primary: #ede4ff;
   --color-text: #736677;
@@ -89,4 +89,28 @@ body {
 
  .blog-content .heading-0 {
     font-size: 2.25rem !important; /* 36px */
+  }
+
+  .cursor-hover-blue {
+    background-image: url("./assets/images/cursor-blue.png");
+    width: 100px !important;
+    height: 100px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    background-color: transparent !important;
+    
+  }
+  .cursor-hover-blue::after {
+    content: "Write Me Something Don't Ghost Me";
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%) rotate(3deg);
+    width: 200px;
+    height: max-content;
+    background-color: white;
+    padding: 10px 20px;
+    transition: all 5s;
+    text-align: center;
   }
