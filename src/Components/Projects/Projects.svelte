@@ -281,7 +281,7 @@
                             class="w-full h-full object-cover"
                         ></video>
                     {:else}
-                        <img
+                        <img loading="lazy"
                             src={project.left.src}
                             alt={project.title}
                             class="w-full h-full object-cover"
@@ -300,7 +300,7 @@
                             class="w-full h-full object-cover"
                         ></video>
                     {:else}
-                        <img
+                        <img loading="lazy"
                             src={project.right.src}
                             alt={project.title}
                             class="w-full h-full object-cover"

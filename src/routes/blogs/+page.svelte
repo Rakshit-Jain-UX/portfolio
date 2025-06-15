@@ -125,6 +125,7 @@
             >
               <div class="overflow-hidden">
                 <img
+                loading="lazy"
                   src={blog.firstImage || "/placeholder.jpg"}
                   alt="Blog image"
                   class="w-full h-60 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"

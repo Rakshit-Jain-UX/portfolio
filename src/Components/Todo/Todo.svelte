@@ -102,7 +102,7 @@
       <div class="carousel__track">
         {#each slideImages as img, index}
           <div class="carousel__slide">
-            <img src={img} alt={`Slide ${index}`} />
+            <img  loading="lazy" src={img} alt={`Slide ${index}`} />
           </div>
         {/each}
       </div>

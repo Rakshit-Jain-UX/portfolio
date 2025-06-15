@@ -212,29 +212,29 @@
         </div>
         <div class="content-wrap flex">
             <div class="content hidden md:block trail-area" bind:this={trailArea}>
-                <img class="content__img" src={imgo} alt="Image 1" />
-                <img class="content__img" src={imgt} alt="Image 2" />
-                <img class="content__img" src={imgtt} alt="Image 3" />
-                <img class="content__img" src={imgf} alt="Image 4" />
-                <img class="content__img" src={imgff} alt="Image 5" />
-                <img class="content__img" src={imgo} alt="Image 1" />
-                <img class="content__img" src={imgt} alt="Image 2" />
-                <img class="content__img" src={imgtt} alt="Image 3" />
-                <img class="content__img" src={imgf} alt="Image 4" />
-                <img class="content__img" src={imgff} alt="Image 5" />
-                <img class="content__img" src={imgo} alt="Image 1" />
-                <img class="content__img" src={imgt} alt="Image 2" />
-                <img class="content__img" src={imgtt} alt="Image 3" />
-                <img class="content__img" src={imgf} alt="Image 4" />
-                <img class="content__img" src={imgff} alt="Image 5" /><img
+                <img loading="lazy" class="content__img" src={imgo} alt="Image 1" />
+                <img loading="lazy" class="content__img" src={imgt} alt="Image 2" />
+                <img loading="lazy" class="content__img" src={imgtt} alt="Image 3" />
+                <img loading="lazy" class="content__img" src={imgf} alt="Image 4" />
+                <img loading="lazy" class="content__img" src={imgff} alt="Image 5" />
+                <img loading="lazy" class="content__img" src={imgo} alt="Image 1" />
+                <img loading="lazy" class="content__img" src={imgt} alt="Image 2" />
+                <img loading="lazy" class="content__img" src={imgtt} alt="Image 3" />
+                <img loading="lazy" class="content__img" src={imgf} alt="Image 4" />
+                <img loading="lazy" class="content__img" src={imgff} alt="Image 5" />
+                <img loading="lazy" class="content__img" src={imgo} alt="Image 1" />
+                <img loading="lazy" class="content__img" src={imgt} alt="Image 2" />
+                <img loading="lazy" class="content__img" src={imgtt} alt="Image 3" />
+                <img loading="lazy" class="content__img" src={imgf} alt="Image 4" />
+                <img loading="lazy" class="content__img" src={imgff} alt="Image 5" /><img loading="lazy"
                     class="content__img"
                     src={imgo}
                     alt="Image 1"
                 />
-                <img class="content__img" src={imgt} alt="Image 2" />
-                <img class="content__img" src={imgtt} alt="Image 3" />
-                <img class="content__img" src={imgf} alt="Image 4" />
-                <img class="content__img" src={imgff} alt="Image 5" />
+                <img loading="lazy" class="content__img" src={imgt} alt="Image 2" />
+                <img loading="lazy" class="content__img" src={imgtt} alt="Image 3" />
+                <img loading="lazy" class="content__img" src={imgf} alt="Image 4" />
+                <img loading="lazy" class="content__img" src={imgff} alt="Image 5" />
             </div>
             <div class="content-text mt-[120px]">
                 <div class="content-wrap mb-[54px] text-center md:text-left">
