@@ -62,24 +62,26 @@
 </script>
 
 <main>
-  <footer class="bg-[#212121] h-dvh pt-[120px] pb-[40px]">
+  <footer class="bg-[#212121]  pt-[30px] md:pt-[120px] pb-[40px] " id="contact">
     <div class="cus-container">
      <div class="flex flex-col justify-between flex-height">
-       <h2 class="text-[100px] font-b text-[#fff] leading-[1.1]">
+       <h2 class="text-[60px] max-md:text-center md:text-[100px] font-b text-[#fff] leading-[1.1] ">
         ALL GOOD THINGS<br />
-      <div class="flex mt-5">  
-        <span class="saol-italic shrink-0">starts with</span><br />
-        <span class="ml-5 block relative w-full">
-         <a href="https://linkedin.com" target="_blank" rel="noopener norefferer" class="cursor-target-blue">
-           <span class="flex w-full absolute">
-            {#each currentText as letter, i}
-              <span
-                class="letter text-white inline-block"
-                bind:this={letters[i]}
-                >{letter}</span
-              >
-            {/each}
-          </span>
+      <div class="flex mt-5 max-md:justify-center relative">  
+        <span class="max-md:text-[40px] saol-italic shrink-0">starts with</span><br />
+        <a href="https://www.linkedin.com/in/rakshit-jain-376261151/" target="_blank" rel="noopener norefferer" class=" max-md:text-[35px] leading-[35px] ml-3 font-b cursor-hover-blue block md:hidden">HELLO</a>
+        <span class="ml-5 block relative w-full hidden md:block">
+         <a href="https://www.linkedin.com/in/rakshit-jain-376261151/" target="_blank" rel="noopener norefferer" class="cursor-target-blue">
+          <span class="flex w-full absolute {words[currentIndex] === 'કેમ  છો' ? 'gujarati-spacing' : ''}">
+  {#each currentText as letter, i}
+    <span
+      class="letter text-white inline-block"
+      bind:this={letters[i]}
+      >{letter}</span
+    >
+  {/each}
+</span>
+
          </a>
         </span>
       </div>
@@ -87,14 +89,14 @@
       <div class="nav  flex flex-col text-[#968d96]">
       <div class="flex justify-between">
           <div class="link">
-          <a href="" class="cursor-target mr-5">Linkedin</a>
+          <a href="https://www.linkedin.com/in/rakshit-jain-376261151/" target="_blank" rel="noopener norefferer" class="cursor-target mr-5">Linkedin</a>
           <a href="" class="cursor-target">Notion</a>
         </div>
-        <div class="nav">
+        <div class="nav hidden md:block">
           <a href="" class="cursor-target mr-5">Home</a>
-          <a href="" class="cursor-target mr-5">Work</a>
-          <a href="" class="cursor-target mr-5">About</a>
-          <a href="" class="cursor-target">Blogs</a>
+          <a href="#work" class="cursor-target mr-5">Work</a>
+          <a href="#about" class="cursor-target mr-5">About</a>
+          <a href="/blogs" class="cursor-target">Blogs</a>
         </div>
       </div>
 
@@ -119,7 +121,21 @@
     -moz-osx-font-smoothing: grayscale;
     line-height: 90px;
   }
+ 
+  .gujarati-spacing .letter {
+  margin-right: 0.10em; /* Adjust as needed */
+}
+
   .flex-height {
     height: calc(100vh - 160px);
+  }
+   @media only screen and (max-width: 767px) {
+    .letter {
+      font-size: 40px;
+      line-height: 40px;
+    }
+    .flex-height {
+      height: calc(100vh - 160px);
+    }
   }
 </style>

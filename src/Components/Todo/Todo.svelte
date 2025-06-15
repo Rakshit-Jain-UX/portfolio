@@ -89,7 +89,7 @@
   });
 </script>
 
-<div class="wrap bg-[#F6F6F1] py-60">
+<div class="wrap bg-[#F6F6F1] py-30 md:py-60 " id="about">
   <h2 class="text-center">
     <span class="block">If you wanna gossip...</span>
     <span
@@ -97,7 +97,7 @@
       >WHAT I LIKE TO DO?</span
     >
   </h2>
-  <div class="topz flex-center sticky top-0">
+  <div class="topz flex-center sticky top-0 overflow-hidden">
     <div class="carousel h-dvh mt-20">
       <div class="carousel__track">
         {#each slideImages as img, index}
@@ -109,7 +109,7 @@
     </div>
   </div>
 
-  <div class="background-text flex flex-col items-center justify-center text-[178px] saol-italic">
+  <div class="background-text flex flex-col items-center justify-center md:text-[178px] text-[70px] saol-italic">
     <h3>Curious</h3>
     <h3>Innovative</h3>
     <h3>Visionary</h3>
@@ -122,8 +122,16 @@
     top: 0%;
     min-height: 100vh;
   }
+ 
   .wrap {
     min-height: 300vh;
+  } @media only screen and (max-width: 767px) {
+    .topz {
+    min-height: 60vh;
+    }
+    .wrap {
+      min-height: 200vh;
+    }
   }
   .carousel {
     position: relative;

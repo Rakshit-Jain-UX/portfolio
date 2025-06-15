@@ -211,7 +211,7 @@
         left: {
             type: "image",
             src: imgff,
-            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[218px] 2xl:max-h-[318px] w-full h-auto",
+            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[318px] 2xl:max-h-[418px] w-full h-auto",
         },
         right: {
             type: "image",
@@ -227,20 +227,20 @@
         left: {
             type: "image",
             src: imgss,
-            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[318px] 2xl:max-h-[518px] w-full h-auto",
+            style: "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
         },
         right: {
             type: "video",
             src: "https://framerusercontent.com/assets/CS9lgYq3S5unC5afuATaIybOxdw.mp4",
             loop: true,
-            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[484px] 2xl:max-h-[404px] w-full h-auto hidden md:block",
+            style: "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
         },
     },
 ];
 
 </script>
 
-<main class="bg-[#F6F6F1] h-min main">
+<main class="bg-[#F6F6F1] h-min main" id="work">
     <div
         class="scroll-head min-h-dvh flex-center sticky top-0 z-10 w-max mx-auto mix-blend-difference text-center flex-col"
     >

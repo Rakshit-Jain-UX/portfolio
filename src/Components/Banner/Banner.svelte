@@ -4,12 +4,12 @@
 
 <main class="bg-primary">
     <div
-        class="banner cus-container min-h-dvh relative  text-center flex justify-center items-center flex-col gap-[32px]"
+        class="banner cus-container min-h-[100vh] relative  text-center flex justify-center items-center flex-col gap-0 md:gap-[32px]"
     >
         <span class="text-[18px] text-[#736673]">Hi! I’m Rakshit Jain</span>
-        <div class="wrap">
+        <div class="wrap my-5 sm:mt-0">
             <div
-                class="font-b leading-[90px] flex justify-center flex-wrap uppercase header text-[30px] sm:text-[60px] md:text-[90px] gap-[24px] flex-col   "
+                class="font-b md:leading-[90px] flex justify-center flex-wrap uppercase header text-[30px] sm:text-[60px] md:text-[90px] md:gap-[24px] flex-col"
             >
                 <span class="flex-center"
                     >web designer </span
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div
-            class="desc mx-auto text-[18px] lg:text-[24px] w-full max-w-[824px] leading-normal text-[#736673]"
+            class="desc mx-auto text-[18px] lg:text-[24px] w-full max-w-[824px] leading-normal text-[#736673] max-md:text-[16px]"
         >
             <p>
                 

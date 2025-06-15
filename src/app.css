@@ -36,6 +36,7 @@
 }
 body {
   font-family: "Excon Regular", sans-serif;
+  scroll-behavior: smooth;
 }
 .cus-container {
   max-width: 1654px;
@@ -111,6 +112,26 @@ body {
     height: max-content;
     background-color: white;
     padding: 10px 20px;
-    transition: all 5s;
     text-align: center;
+  }
+  @media only screen and (max-width: 767px) {
+   
+    .cursor-hover-blue::after {
+    content: "Write Me Something Don't Ghost Me";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%) rotate(3deg);
+    width: 200px;
+    height: max-content;
+    background-color: white;
+    padding: 10px 20px;
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-weight: normal !important;
+    padding: 10px;
+    font-family: "Excon Regular";
+    line-height: normal;
+  }
   }

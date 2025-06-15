@@ -1,55 +1,140 @@
 <script>
+  import { onMount, tick } from "svelte";
+  import gsap from "gsap";
   import "../../app.css";
+
+  let isMenuOpen = false;
+  let mobileMenuEl;
+
+  const mobileLinks = ['Work', 'About', 'Contact', 'Blogs'];
+
+  const toggleMenu = async () => {
+    isMenuOpen = !isMenuOpen;
+    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+
+    if (isMenuOpen) {
+      await tick(); // Wait for DOM update
+
+      // Step 1: Animate height of container
+      gsap.fromTo(
+        mobileMenuEl,
+        { height: 0, opacity: 0 },
+        {
+          height: "calc(100vh - 156px)",
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.out",
+          onComplete: () => {
+            // Step 2: Animate links after height expands
+            gsap.fromTo(
+              ".mobile-link",
+              { y: 40, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power3.out",
+                stagger: 0.1,
+              }
+            );
+          }
+        }
+      );
+    }
+  };
+
+  onMount(() => {
+    let lastScroll = 0;
+    const header = document.querySelector("header");
+    header.classList.remove("hide-header");
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
+
+      if (window.scrollY > 300) {
+        if (currentScroll <= 0) {
+          header.classList.remove("hide-header");
+          return;
+        }
+
+        if (currentScroll > lastScroll) {
+          header.classList.add("hide-header");
+        } else {
+          header.classList.remove("hide-header");
+        }
+
+        lastScroll = currentScroll;
+      } else {
+        header.classList.remove("hide-header");
+      }
+    });
+  });
 </script>
 
 <main>
-  <header class="fixed top-0 w-full z-50 text-text">
+  <header class="fixed top-0 w-full z-50 text-text backdrop-blur-lg border-b border-b-gray-200 hide-header">
     <div class="cus-container">
-      <div class="header-wrap flex justify-between py-4">
-        <p>Rakshit Jain</p>
+      <div class="header-wrap flex justify-between items-center py-4">
+        <p class="font-bold">
+          <a href="/">Rakshit Jain</a>
+        </p>
 
-        <div class="nav-links flex gap-6">
-          <a href="https://google.com" class="relative overflow-hidden group">
-            <span
-              class="relative block transition-transform duration-300 group-hover:-translate-y-5"
-              >Work</span
-            >
-            <span
-              class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0"
-              >Work</span
-            >
-          </a>
-          <a href="https://google.com" class="relative overflow-hidden group">
-            <span
-              class="relative block transition-transform duration-300 group-hover:-translate-y-5"
-              >About</span
-            >
-            <span
-              class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0"
-              >About</span
-            >
-          </a>
-          <a href="https://google.com" class="relative overflow-hidden group">
-            <span
-              class="relative block transition-transform duration-300 group-hover:-translate-y-5"
-              >Contact</span
-            >
-            <span
-              class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0"
-              >Contact</span
-            >
-          </a>  <a href="/blogs" class="relative overflow-hidden group">
-            <span
-              class="relative block transition-transform duration-300 group-hover:-translate-y-5"
-              >Blogs</span
-            >
-            <span
-              class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0"
-              >Blogs</span
-            >
-          </a>
+        <!-- Desktop Nav -->
+        <div class="nav-links hidden md:flex gap-6">
+          {#each ['Work', 'About', 'Contact', 'Blogs'] as link}
+            <a href={link === 'Blogs' ? '/blogs' : 'https://google.com'} class="relative overflow-hidden group">
+              <span class="relative block transition-transform duration-300 group-hover:-translate-y-5">{link}</span>
+              <span class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0">{link}</span>
+            </a>
+          {/each}
         </div>
+
+        <!-- Hamburger Button -->
+        <button class="md:hidden" on:click={toggleMenu}>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
+
+      <!-- Mobile Menu -->
+      {#if isMenuOpen}
+        <div
+          bind:this={mobileMenuEl}
+          class="mob-head md:hidden overflow-hidden opacity-0 bg-text p-10 rounded-2xl w-full text-center items-center justify-center text-white saol-italic text-[56px] font-medium flex"
+        >
+          <div class="flex flex-col gap-4">
+            {#each mobileLinks as link}
+              <a
+                href={link === 'Blogs' ? '/blogs' : 'https://google.com'}
+                class="mobile-link"
+              >
+                {link}
+              </a>
+            {/each}
+          </div>
+        </div>
+      {/if}
     </div>
   </header>
 </main>
+
+<style>
+  header {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .hide-header {
+    transform: translateY(-100%);
+  }
+
+  .mob-head {
+    height: calc(100vh - 156px);
+  }
+
+  .mobile-link {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+</style>
