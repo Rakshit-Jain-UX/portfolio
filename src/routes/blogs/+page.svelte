@@ -91,7 +91,10 @@
     loading = false;
   });
 </script>
-
+<svelte:head>
+  <title>Blogs - Rakshit Jain</title>
+  <meta name="description" content="Rakshit Jain's Blogs">
+</svelte:head>
 {#if loading}
   <div class="bg-primary py-20 px-4">
     <h1 class="text-3xl font-bold mb-8 text-center">Blogs</h1>
