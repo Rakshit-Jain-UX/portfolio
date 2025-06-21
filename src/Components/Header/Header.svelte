@@ -69,10 +69,15 @@
       }
     });
   });
+  function closeMenu() {
+    isMenuOpen = false;
+    document.body.style.overflowY = 'scroll';
+
+  }
 </script>
 
 <main>
-  <header class="fixed top-0 w-full z-50 text-text backdrop-blur-lg border-b border-b-gray-200 hide-header">
+  <header class="fixed top-0 w-full z-[999] text-text hide-header">
     <div class="cus-container">
       <div class="header-wrap flex justify-between items-center py-4">
         <p class="font-bold">
@@ -82,7 +87,7 @@
         <!-- Desktop Nav -->
         <div class="nav-links hidden md:flex gap-6">
           {#each ['Work', 'About', 'Contact', 'Blogs'] as link}
-            <a href={link === 'Blogs' ? '/blogs' : 'https://google.com'} class="relative overflow-hidden group">
+            <a href={link === 'Blogs' ? '/blogs' : `#${link.toLowerCase()}`} class="relative overflow-hidden group">
               <span class="relative block transition-transform duration-300 group-hover:-translate-y-5">{link}</span>
               <span class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0">{link}</span>
             </a>
@@ -107,8 +112,9 @@
           <div class="flex flex-col gap-4">
             {#each mobileLinks as link}
               <a
-                href={link === 'Blogs' ? '/blogs' : 'https://google.com'}
+                href={link === 'Blogs' ? '/blogs' : `#${link.toLowerCase()}`}
                 class="mobile-link"
+                on:click={closeMenu}
               >
                 {link}
               </a>

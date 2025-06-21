@@ -12,7 +12,7 @@
                 class="font-b md:leading-[90px] flex justify-center flex-wrap uppercase header text-[30px] sm:text-[60px] md:text-[90px] md:gap-[24px] flex-col"
             >
                 <span class="flex-center"
-                    >web designer </span
+                    >ui/ux designer </span
                 >
                 <div class="">
                     <span class="cursew"

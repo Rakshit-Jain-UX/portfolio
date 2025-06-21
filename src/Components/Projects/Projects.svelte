@@ -173,7 +173,7 @@
     {
         id: "project-beta",
         title: "Beta",
-        description: "{FE , LE}",
+        description: "",
         link: "https://link.com/project-beta",
         left: {
             type: "video",

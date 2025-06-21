@@ -59,6 +59,10 @@
     const interval = setInterval(nextWord, 3000);
     return () => clearInterval(interval);
   });
+
+  function handleToTop() {
+    window.scrollTo(0,0);
+  }
 </script>
 
 <main>
@@ -103,7 +107,7 @@
          <div class="details flex justify-between mt-5">
         <span>CONTRA</span>
         <span>C 2025 Rakshit Jain</span>
-        <span>Back To Top</span>
+        <span onclick={handleToTop} class="cursor-pointer">Back To Top</span>
       </div>
       </div>
 
