@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rakshit-jain.vercel.app/sitemap.xml
