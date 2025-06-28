@@ -85,9 +85,9 @@
         </p>
 
         <!-- Desktop Nav -->
-        <div class="nav-links hidden md:flex gap-6">
+        <div class="nav-links hidden md:flex gap-6 bg-fuchsia-200 py-5 px-10 rounded-2xl">
           {#each ['Work', 'About', 'Contact', 'Blogs'] as link}
-            <a href={link === 'Blogs' ? '/blogs' : `#${link.toLowerCase()}`} class="relative overflow-hidden group">
+            <a href={link === 'Blogs' ? '/blogs' : `/#${link.toLowerCase()}`} class="relative overflow-hidden group">
               <span class="relative block transition-transform duration-300 group-hover:-translate-y-5">{link}</span>
               <span class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0">{link}</span>
             </a>
@@ -112,7 +112,7 @@
           <div class="flex flex-col gap-4">
             {#each mobileLinks as link}
               <a
-                href={link === 'Blogs' ? '/blogs' : `#${link.toLowerCase()}`}
+                href={link === 'Blogs' ? '/blogs' : `/#${link.toLowerCase()}`}
                 class="mobile-link"
                 on:click={closeMenu}
               >
