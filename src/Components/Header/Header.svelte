@@ -77,7 +77,7 @@
 </script>
 
 <main>
-  <header class="fixed top-0 w-full z-[999] text-text hide-header">
+  <header class="fixed top-0 w-full z-[999] text-black hide-header " >
     <div class="cus-container">
       <div class="header-wrap flex justify-between items-center py-4">
         <p class="font-bold">
@@ -85,7 +85,7 @@
         </p>
 
         <!-- Desktop Nav -->
-        <div class="nav-links hidden md:flex gap-6 bg-fuchsia-200 py-5 px-10 rounded-2xl">
+        <div class="nav-links hidden md:flex gap-6 bg-[#ededeabb] py-5 px-10 rounded-2xl backdrop-blur-md">
           {#each ['Work', 'About', 'Contact', 'Blogs'] as link}
             <a href={link === 'Blogs' ? '/blogs' : `/#${link.toLowerCase()}`} class="relative overflow-hidden group">
               <span class="relative block transition-transform duration-300 group-hover:-translate-y-5">{link}</span>

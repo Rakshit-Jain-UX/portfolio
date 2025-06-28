@@ -9,17 +9,17 @@
 
   function handleNavClick(event, targetId) {
     if (window.location.pathname === "/blogs") {
-        event.preventDefault();
-        const el = document.querySelector(targetId);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
-        }
+      event.preventDefault();
+      const el = document.querySelector(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     }
-}
+  }
 
   const splitter = new GraphemeSplitter();
 
-  let words = ["HELLO", "नमस्ते", "કેમ  છો", ];
+  let words = ["HELLO", "नमस्ते", "કેમ  છો"];
   let currentIndex = 0;
   let currentText = splitter.splitGraphemes(words[currentIndex]); // <-- split by grapheme clusters
   let textEls = [];
@@ -122,10 +122,8 @@
           </div>
         </h2>
         <div class="nav flex flex-col text-[#968d96]">
-          <div class="flex justify-between ">
-            <div class="link max-md:w-full flex justify-between">
-              <a href="" class="cursor-target">Notion</a>
-              <div class="md:hidden">
+          <div class="flex justify-between">
+            <div class="">
               <a
                 href="https://www.instagram.com/_design.astra_/"
                 target="_blank"
@@ -136,7 +134,6 @@
                 target="_blank"
                 class="cursor-target">Mail</a
               >
-            </div>
             </div>
             <div class="nav hidden md:block max-w-max">
               <a href="/" class="cursor-target mr-5">Home</a>
@@ -147,21 +144,11 @@
           </div>
 
           <div class="details flex justify-between mt-5">
-            <div class="max-md:hidden">
-              <a
-                href="https://www.instagram.com/_design.astra_/"
-                target="_blank"
-                class="cursor-target mr-5">Instagram</a
-              >
-              <a
-                href="mailto:rakshit.jain058@gmail.com"
-                target="_blank"
-                class="cursor-target">Mail</a
-              >
-            </div>
-            <span>C 2025 Rakshit Jain</span>
+           
+            <span>© 2025 Rakshit Jain</span>
 
-            <span on:click={handleToTop} class="cursor-pointer">Back To Top</span
+            <span on:click={handleToTop} class="cursor-pointer"
+              >Back To Top</span
             >
           </div>
         </div>
