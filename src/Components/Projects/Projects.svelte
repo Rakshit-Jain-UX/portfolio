@@ -12,6 +12,7 @@
   import imgs from "../../assets/images/1-4.jpg";
   import imgss from "../../assets/images/1-6.jpg";
   import oneMp from "../../assets/videos/one.mp4";
+  // 
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
