@@ -4,15 +4,19 @@
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
 
-  import imgo from "../../assets/images/1-1.jpg";
-  import imgt from "../../assets/images/1-5.jpg";
+  //import imgo from "../../assets/images/1-1.jpg";
+  import wingz from "../../assets/images/shot 47.jpg";
+  import wingzz from "../../assets/images/shot 23.jpg";
+  import imgq from "../../assets/images/shot 74.jpg";
+  import imgt from "../../assets/images/shot 61.png";
   import imgtt from "../../assets/images/1-3.jpg";
-  import imgf from "../../assets/images/4.png";
-  import imgff from "../../assets/images/1-2.png";
-  import imgs from "../../assets/images/1-4.jpg";
-  import imgss from "../../assets/images/1-6.jpg";
-  import oneMp from "../../assets/videos/one.mp4";
-  // 
+  import imgf from "../../assets/images/portfolio-mockup-laptop 22.jpg";
+  import imgff from "../../assets/images/portfolio-mockup-laptop 32.jpg";
+  import imgs from "../../assets/images/portfolio-mockup-laptop 22.jpg";
+  import imgss from "../../assets/images/web-portfolio-mockup_11.png";
+  import imgsf from "../../assets/images/web-portfolio-mockup_10.png";
+  //import oneMp from "../../assets/videos/one.mp4";
+  
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -171,12 +175,13 @@
   const projects = [
     {
       id: "project-beta",
-      title: "Beta",
-      description: "",
-      link: "https://link.com/project-beta",
+      title: "TaleTide",
+      description: "{ A social audiobook app where you read, listen, and grow together with friends and loved ones. }",
+      //description1: "UI / UX Design",
+      link: "https://embed.figma.com/design/glPrnUoM4slg2KfSmnvBPo/Untitled?node-id=46-330&embed-host=share ",
       left: {
-        type: "video",
-        src: "https://framerusercontent.com/assets/dSNnQiBBZNAAOJnvT4kpDdOJtDk.mp4",
+        type: "image",
+        src: imgq,
         style:
           "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
       },
@@ -189,28 +194,28 @@
     },
     {
       id: "project-gamma",
-      title: "Gamma",
-      description: "{FE , LE}",
-      link: "https://link.com/project-gamma",
+      title: "Wingz",
+      description: "{ A mobile app that lets parents easily book and track their kids’ trips in real-time for safe and worry-free travel. }",
+      link: "https://embed.figma.com/design/iBiisRJ6MZ101G4KamCC71/Child-Trip-Tracking-App?node-id=0-1&embed-host=share",
       left: {
         type: "image",
-        src: imgtt,
+        src: wingzz,
         style:
           "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
       },
       right: {
-        type: "video",
-        src: "https://framerusercontent.com/assets/EI9adVb6jBzKn2ODPb34suAwJ8.mp4",
-        loop: true,
+        type: "image",
+        src: wingz,
+        //loop: true,
         style:
           "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
       },
     },
     {
       id: "project-delta",
-      title: "Delta",
-      description: "{FE , LE}",
-      link: "https://link.com/project-delta",
+      title: "BeSpoke Tours",
+      description: "{ Discover and book your next perfect vacation with ease through our all-in-one tour planning and booking platform. }",
+      link: "https://embed.figma.com/design/nCZ6BagjLp338pte12AtbU/BESPOKE---Travel-Landing-Page?node-id=0-1&embed-host=share",
       left: {
         type: "image",
         src: imgff,
@@ -226,9 +231,9 @@
     },
     {
       id: "project-echo",
-      title: "Echo",
-      description: "{FE , LE}",
-      link: "https://link.com/project-echo",
+      title: "That Time",
+      description: "{ A seamless platform to explore and book appointments with barbers, salons, and nail artists near you. }",
+      link: "https://embed.figma.com/design/b03otWdynGmklN6h1D3nPf/Rakshit-Jain-Task?node-id=0-1&embed-host=share",
       left: {
         type: "image",
         src: imgss,
@@ -236,9 +241,9 @@
           "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
       },
       right: {
-        type: "video",
-        src: "https://framerusercontent.com/assets/CS9lgYq3S5unC5afuATaIybOxdw.mp4",
-        loop: true,
+        type: "image",
+        src: imgsf,
+        //loop: true,
         style:
           "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
       },
@@ -274,6 +279,7 @@
         id={project.id}
         data-title={project.title}
         data-description={project.description}
+        data.decription1= {project.description1}
         data-link={project.link}
       >
         <div class={`left ${project.left.style}`}>

@@ -1,18 +1,19 @@
 <script>
   import { onMount } from "svelte";
   import { gsap } from "gsap";
-
+  import img from "../../assets/images/WhatsApp Image 2025-01-29 at 6.41.03 PM.jpeg";
   let slides = [];
   let current = 0;
   let intervalId;
 
   const slideImages = [
-    "https://picsum.photos/400/300?random=1",
-    "https://picsum.photos/400/300?random=2",
-    "https://picsum.photos/400/300?random=3",
-    "https://picsum.photos/400/300?random=4",
-    "https://picsum.photos/400/300?random=5",
-    "https://picsum.photos/400/300?random=6",
+  img,
+    "https://i.ibb.co/sJHFqy3N/Whats-App-Image-2025-06-09-at-12-44-04-AM.jpg",
+    "https://i.ibb.co/1fJwZCNM/Whats-App-Image-2025-01-29-at-6-41-03-PM.jpg",
+    "https://i.ibb.co/8DnrghXQ/image.png",
+    "https://i.ibb.co/FQ8rVkn/Whats-App-Image-2025-06-09-at-12-44-09-AM-1.jpg",
+    //"https://picsum.photos/400/300?random=5",
+    //"https://picsum.photos/400/300?random=6",
   ];
 
   function startAutoCarousel() {
