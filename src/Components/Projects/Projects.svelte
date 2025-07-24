@@ -15,6 +15,8 @@
   import imgs from "../../assets/images/portfolio-mockup-laptop 22.jpg";
   import imgss from "../../assets/images/web-portfolio-mockup_11.png";
   import imgsf from "../../assets/images/web-portfolio-mockup_10.png";
+  import socio1 from "../../assets/images/Socio-shot1.png";
+  import socio2 from "../../assets/images/Socio-shot2.png";
   //import oneMp from "../../assets/videos/one.mp4";
   
 
@@ -173,6 +175,25 @@
   });
 
   const projects = [
+    {
+      id: "project-demma",
+      title: "Socio",
+      description: "{ Socio – A vibrant social media app to connect, share, and express yourself like never before. }",
+      link: "https://embed.figma.com/design/yvJS8806iv2jw6YPgQT4wz/Socio--Social-Media-App?node-id=0-1&embed-host=share",
+      left: {
+        type: "image",
+        src: socio2, 
+        style:
+          "max-h-[400px] md:max-w-[318px] md:max-h-[418px] 2xl:max-w-[418px] 2xl:max-h-[618px] w-full h-auto",
+      },
+      right: {
+        type: "image",
+        src: socio1,
+        //loop: true,
+        style:
+          "md:max-w-[484px] md:pl-24 md:max-h-[404px] 2xl:max-w-[684px] 2xl:max-h-[604px] w-full h-auto hidden md:block",
+      },
+    },
     {
       id: "project-beta",
       title: "TaleTide",
