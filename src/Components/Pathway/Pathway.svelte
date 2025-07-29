@@ -348,48 +348,48 @@
                     <h3
                         class="saol-italic text-[32px] md:text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
                     >
-                        👀 Eyes on detail
+                        👀 Designing Like a Curious Human
+
                     </h3>
                     <p
                         class="text-[18px] text-[#736673] translate-y-10 opacity-0 multi-text-up"
                     >
-                        Design System enthusiast. I’m passionate about creating
-                        well-documented components, optimizing design tokens,
-                        ensuring pixel-perfect handoffs, and prototyping
-                        detailed interactions and states to deliver cohesive and
-                        efficient design systems.
+                        Before the wireframes, tools, or trend boards — I start with questions.
+                        What does this person really need? What would make them smile without even realizing it?
+                        That curiosity led me into UI/UX, and it still drives me. 
+                        I don’t just design screens; I shape moments that feel human.
+                        Because great design doesn’t scream — it whispers, guides, and understands.
                     </p>
                 </div>
                 <div class="content-wrap mb-[54px] text-center md:text-left">
                     <h3
                         class="saol-italic text-[32px] md:text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
                     >
-                        ✨Strategy deliver
+                        ✨Shaped by Challenges
                     </h3>
                     <p
                         class="text-[18px] text-[#736673] translate-y-10 opacity-0 multi-text-up"
                     >
-                        Aware of business goals and client needs, I often find
-                        myself juggling between the profitability of a project
-                        and pushing boundaries with the coveted WOW effect or
-                        the ultimate feature no one has done before. One of the
-                        greatest daily challenges is reaching agreements and
-                        negotiating decisions based on priorities.
+                        My journey didn’t come with a roadmap — it came with trial, error,
+                        feedback loops, and a few all-nighters where Figma became my best friend.
+                        Each project taught me something different — from creating structure in chaos to storytelling through layout.
+                        I’ve built interfaces that breathe, respond, and adapt — and every time,
+                        I walked away sharper, more mindful, and more excited for what’s next.
                     </p>
                 </div>
                 <div class="content-wrap mb-[0] text-center md:text-left">
                     <h3
                         class="saol-italic text-[32px] md:text-[54px] mb-[12px] text-[#212121] translate-y-10 opacity-0 multi-text-up"
                     >
-                        🤖 Code enthusiast
+                        💪 I Design for Impact
                     </h3>
                     <p
                         class="text-[18px] text-[#736673] translate-y-10 opacity-0 multi-text-up"
                     >
-                        Marriage with programming. In the digital world, we
-                        operate through a language in the form of code, and I
-                        consider it crucial to understand this language to
-                        navigate its rules, possibilities, and opportunities.
+                        Design, to me, isn’t just what users see — it’s how they feel
+                        when no one’s watching. I obsess over micro-moments, accessibility nuances,
+                        and interaction rhythms that turn a product from usable to unforgettable. My strength?
+                        Making digital experiences feel less like software and more like second nature.
                     </p>
                 </div>
             </div>
