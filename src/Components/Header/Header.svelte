@@ -86,7 +86,7 @@
 
         <!-- Desktop Nav -->
         <div class="nav-links hidden md:flex gap-6 bg-[#ededeabb] py-5 px-10 rounded-2xl backdrop-blur-md">
-          {#each ['Work', 'About', 'Contact', 'Blogs'] as link}
+          {#each ['Work', 'About', 'Contact'] as link}
             <a href={link === 'Blogs' ? '/blogs' : `/#${link.toLowerCase()}`} class="relative overflow-hidden group">
               <span class="relative block transition-transform duration-300 group-hover:-translate-y-5">{link}</span>
               <span class="absolute bottom-0 left-0 translate-y-5 transition-transform duration-300 group-hover:translate-y-0">{link}</span>
