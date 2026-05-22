@@ -139,7 +139,6 @@
               <a href="/" class="cursor-target mr-5">Home</a>
               <a href="/#work" class="cursor-target mr-5">Work</a>
               <a href="/#about" class="cursor-target mr-5">About</a>
-              <a href="/blogs" class="cursor-target">Blogs</a>
             </div>
           </div>
 
