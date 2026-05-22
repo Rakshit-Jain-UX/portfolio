@@ -138,7 +138,7 @@
             <div class="nav hidden md:block max-w-max">
               <a href="/" class="cursor-target mr-5">Home</a>
               <a href="/#work" class="cursor-target mr-5">Work</a>
-              <a href="/#about" class="cursor-target mr-5">About</a>
+              <a href="/#about" class="cursor-target mr-0">About</a>
             </div>
           </div>
 
