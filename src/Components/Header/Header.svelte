@@ -6,7 +6,7 @@
   let isMenuOpen = false;
   let mobileMenuEl;
 
-  const mobileLinks = ['Work', 'About', 'Contact', 'Blogs'];
+  const mobileLinks = ['Work', 'About', 'Contact'];
 
   const toggleMenu = async () => {
     isMenuOpen = !isMenuOpen;
