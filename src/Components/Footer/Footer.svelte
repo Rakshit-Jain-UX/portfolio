@@ -149,6 +149,8 @@
             <span on:click={handleToTop} class="cursor-pointer"
               >Back To Top</span
             >
+
+            <a href="https://www.bhavyapanchal.in" class="cursor-pointer">Developed By Bhavya Panchal.</a>
           </div>
         </div>
       </div>
